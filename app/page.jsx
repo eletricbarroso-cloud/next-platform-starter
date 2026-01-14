@@ -97,7 +97,7 @@ export default function Page() {
                 </h2>
 
                 <p style={{ color: "white", marginBottom: "1.5rem" }}>
-                    Chamo‑me João Barroso e trabalho na área das instalações elétricas e manutenção técnica.
+                    Trabalho na área das instalações elétricas e manutenção técnica.
                     Sou um profissional dedicado, focado na segurança, na qualidade e na resolução eficiente
                     de qualquer problema elétrico. Cada serviço é tratado com atenção ao detalhe e respeito
                     pelo espaço de quem me recebe.
