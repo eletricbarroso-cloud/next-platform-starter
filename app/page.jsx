@@ -37,8 +37,8 @@ export default function Page() {
                 </h1>
 
                 <p className="mb-6 text-lg" style={{ color: "white" }}>
-                    Instalações elétricas, manutenção, reparações e soluções técnicas com a energia do multiverso.
-                    Serviço profissional, rápido e certificado.
+                    Instalações elétricas, manutenção, reparações e soluções técnicas.
+                    Serviço profissional, rápido.
                 </p>
 
                 <div className="flex gap-4 flex-wrap">
