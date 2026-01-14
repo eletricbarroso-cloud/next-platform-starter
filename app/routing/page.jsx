@@ -2,132 +2,158 @@ import Link from 'next/link';
 import { Card } from 'components/card';
 import { ContextAlert } from 'components/context-alert';
 import { Markdown } from 'components/markdown';
+import { RandomQuote } from 'components/random-quote';
+import { getNetlifyContext } from 'utils';
 
-export const metadata = {
-    title: 'Redirects & Rewrites'
-};
-
-const explainer = `
-Next.js supports [redirects](https://nextjs.org/docs/app/api-reference/next-config-js/redirects) and [rewrites](https://nextjs.org/docs/app/api-reference/next-config-js/rewrites) configured in \`next.config.js\`.
-
-**Redirects** change the URL in the browser and send the user to a different location. They're useful for:
-- Moving content to new locations
-- Forwarding users to external sites
-- Creating URL aliases with SEO-friendly permanent redirects
-
-**Rewrites** proxy the request to a different path without changing the URL in the browser. They're useful for:
-- Creating cleaner URLs that map to complex paths
-- API endpoint aliases
-- Migrating from old URL structures without breaking links
-
-This site demonstrates both with several examples you can try below.
+const contextExplainer = `
+O cartão abaixo é renderizado no servidor com base no valor de \`process.env.CONTEXT\`.
 `;
 
-const redirectsSnippet = `
-### Redirects
-
-~~~js
-// next.config.js
-redirects() {
-  return [
-    {
-      source: '/docs',
-      destination: 'https://docs.netlify.com/frameworks/next-js/overview/',
-      permanent: false, // Temporary (307)
-    },
-    {
-      source: '/old-blog/:slug',
-      destination: '/classics',
-      permanent: true, // Permanent (308)
-    },
-    {
-      source: '/github',
-      destination: 'https://github.com/netlify-templates/next-platform-starter',
-      permanent: false,
-    },
-    {
-      source: '/home',
-      destination: '/',
-      permanent: true,
-    },
-  ];
-}
-~~~
+const preDynamicContentExplainer = `
+A frase abaixo é carregada do endpoint \`/quotes/random\`, mostrando uma diferente a cada carregamento.
 `;
 
-const rewritesSnippet = `
-### Rewrites
-
-~~~js
-// next.config.js
-rewrites() {
-  return [
-    {
-      source: '/api/health',
-      destination: '/quotes/random', // Proxies to the quotes API
-    },
-    {
-      source: '/blog',
-      destination: '/classics', // Shows classics content under /blog URL
-    },
-  ];
-}
-~~~
-`;
+const ctx = getNetlifyContext();
 
 export default function Page() {
     return (
-        <>
-            <ContextAlert className="mb-6" />
-            <h1 className="mb-8">Redirects & Rewrites</h1>
-            <Markdown content={explainer} className="mb-8" />
+        <div
+            className="flex flex-col gap-12 sm:gap-16 min-h-screen p-6"
+            style={{ backgroundColor: "#001F3F" }}
+        >
+            {/* SECÇÃO PRINCIPAL */}
+            <section className="p-6 rounded-lg">
+                <ContextAlert className="mb-6" />
 
-            <div className="grid gap-6 mb-8 md:grid-cols-2">
-                <Card title="Try Redirects">
-                    <p className="mb-4">These links will redirect you to a different URL (notice the URL change in your browser):</p>
-                    <ul className="space-y-2">
-                        <li>
-                            <Link href="/docs" className="link">
-                                /docs → Netlify Docs
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="/github" className="link">
-                                /github → GitHub Repo
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="/home" className="link">
-                                /home → Homepage
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="/old-blog/example" className="link">
-                                /old-blog/:slug → /classics
-                            </Link>
-                        </li>
-                    </ul>
-                </Card>
+                <h1
+                    className="mb-4"
+                    style={{
+                        color: "#F2C94C",
+                        fontSize: "3.5rem",
+                        fontWeight: "900",
+                    }}
+                >
+                    EletricBarroso
+                </h1>
 
-                <Card title="Try Rewrites">
-                    <p className="mb-4">These links use rewrites to show different content while keeping the URL (notice the URL stays the same):</p>
-                    <ul className="space-y-2">
-                        <li>
-                            <Link href="/api/health" className="link">
-                                /api/health → Shows random quote
-                            </Link>
-                        </li>
-                        <li>
-                            <Link href="/blog" className="link">
-                                /blog → Shows classics page
-                            </Link>
-                        </li>
-                    </ul>
-                </Card>
-            </div>
+                <p className="mb-6 text-lg" style={{ color: "white" }}>
+                    Serviços de instalações elétricas, manutenção e reparações.
+                    Trabalho profissional, seguro e realizado com rigor técnico.
+                </p>
 
-            <Markdown content={redirectsSnippet} className="mb-8" />
-            <Markdown content={rewritesSnippet} />
-        </>
+                <div className="flex gap-4 flex-wrap">
+                    <Link
+                        href="/fotos"
+                        className="btn btn-lg"
+                        style={{
+                            color: "#F2C94C",
+                            border: "2px solid #F2C94C",
+                            background: "transparent",
+                            fontWeight: "700",
+                        }}
+                    >
+                        Fotos
+                    </Link>
+
+                    <Link
+                        href="/comentarios"
+                        className="btn btn-lg"
+                        style={{
+                            color: "#F2C94C",
+                            border: "2px solid #F2C94C",
+                            background: "transparent",
+                            fontWeight: "700",
+                        }}
+                    >
+                        Comentários
+                    </Link>
+
+                    <a
+                        href="mailto:eletricbarroso@gmail.com?subject=Pedido%20de%20Contacto"
+                        className="btn btn-lg"
+                        style={{
+                            color: "#F2C94C",
+                            border: "2px solid #F2C94C",
+                            background: "transparent",
+                            fontWeight: "700",
+                        }}
+                    >
+                        Contacto
+                    </a>
+                </div>
+            </section>
+
+            {/* SECÇÃO SOBRE */}
+            <section className="p-6 rounded-lg" style={{ background: "rgba(255,255,255,0.05)" }}>
+                <h2
+                    style={{
+                        color: "#F2C94C",
+                        fontSize: "2rem",
+                        fontWeight: "800",
+                        marginBottom: "1rem",
+                    }}
+                >
+                    Sobre Mim
+                </h2>
+
+                <p style={{ color: "white", marginBottom: "1.5rem" }}>
+                    Chamo‑me João Barroso e trabalho na área das instalações elétricas e manutenção técnica.
+                    Sou um profissional dedicado, focado na segurança, na qualidade e na resolução eficiente
+                    de qualquer problema elétrico. Cada serviço é tratado com atenção ao detalhe e respeito
+                    pelo espaço de quem me recebe.
+                </p>
+
+                <h2
+                    style={{
+                        color: "#F2C94C",
+                        fontSize: "2rem",
+                        fontWeight: "800",
+                        marginBottom: "1rem",
+                    }}
+                >
+                    Sobre a EletricBarroso
+                </h2>
+
+                <p style={{ color: "white" }}>
+                    A EletricBarroso é uma empresa recente, criada com o objetivo de oferecer serviços elétricos
+                    fiáveis, seguros e realizados com rigor técnico. Apesar de estar a dar os primeiros passos,
+                    nasce com uma base sólida de experiência prática e compromisso profissional. O foco é simples:
+                    garantir que cada cliente recebe um serviço claro, honesto e bem executado.
+                </p>
+            </section>
+
+            {/* CONTEXTO NETLIFY */}
+            {!!ctx && (
+                <section className="flex flex-col gap-4">
+                    <Markdown content={contextExplainer} />
+                    <RuntimeContextCard />
+                </section>
+            )}
+
+            {/* FRASE ALEATÓRIA */}
+            <section className="flex flex-col gap-4">
+                <Markdown content={preDynamicContentExplainer} />
+                <RandomQuote />
+            </section>
+        </div>
     );
+}
+
+function RuntimeContextCard() {
+    const title = `Netlify Context: running in ${ctx} mode.`;
+
+    if (ctx === 'dev') {
+        return (
+            <Card title={title}>
+                <p>Next.js irá reconstruir qualquer página que navegue, incluindo páginas estáticas.</p>
+            </Card>
+        );
+    } else {
+        const now = new Date().toISOString();
+        return (
+            <Card title={title}>
+                <p>Esta página foi gerada estaticamente no build ({now}).</p>
+            </Card>
+        );
+    }
 }
