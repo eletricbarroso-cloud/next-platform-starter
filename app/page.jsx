@@ -37,8 +37,8 @@ export default function Page() {
                 </h1>
 
                 <p className="mb-6 text-lg" style={{ color: "white" }}>
-                    Instalações elétricas, manutenção, reparações e soluções técnicas.
-                    Serviço profissional, rápido.
+                    Serviços de instalações elétricas, manutenção e reparações.
+                    Trabalho profissional, seguro e realizado com rigor técnico.
                 </p>
 
                 <div className="flex gap-4 flex-wrap">
@@ -52,7 +52,7 @@ export default function Page() {
                             fontWeight: "700",
                         }}
                     >
-                        Ver Fotos
+                        Fotos
                     </Link>
 
                     <Link
@@ -69,7 +69,7 @@ export default function Page() {
                     </Link>
 
                     <a
-                        href="mailto:eletricbarroso@gmail.com?subject=Pedido%20de%20Contacto&body=Olá%20EletricBarroso,%0D%0A%0D%0AQuero%20pedir%20um%20contacto.%0D%0A%0D%0ANome:%0D%0AMorada:%0D%0ATelefone:%0D%0A%0D%0AObrigado!"
+                        href="mailto:eletricbarroso@gmail.com?subject=Pedido%20de%20Contacto"
                         className="btn btn-lg"
                         style={{
                             color: "#F2C94C",
@@ -78,9 +78,48 @@ export default function Page() {
                             fontWeight: "700",
                         }}
                     >
-                        Pedir Contacto
+                        Contacto
                     </a>
                 </div>
+            </section>
+
+            {/* SECÇÃO SOBRE */}
+            <section className="p-6 rounded-lg" style={{ background: "rgba(255,255,255,0.05)" }}>
+                <h2
+                    style={{
+                        color: "#F2C94C",
+                        fontSize: "2rem",
+                        fontWeight: "800",
+                        marginBottom: "1rem",
+                    }}
+                >
+                    Sobre Mim
+                </h2>
+
+                <p style={{ color: "white", marginBottom: "1.5rem" }}>
+                    Chamo‑me João Barroso e trabalho na área das instalações elétricas e manutenção técnica.
+                    Sou um profissional dedicado, focado na segurança, na qualidade e na resolução eficiente
+                    de qualquer problema elétrico. Cada serviço é tratado com atenção ao detalhe e respeito
+                    pelo espaço de quem me recebe.
+                </p>
+
+                <h2
+                    style={{
+                        color: "#F2C94C",
+                        fontSize: "2rem",
+                        fontWeight: "800",
+                        marginBottom: "1rem",
+                    }}
+                >
+                    Sobre a EletricBarroso
+                </h2>
+
+                <p style={{ color: "white" }}>
+                    A EletricBarroso é uma empresa recente, criada com o objetivo de oferecer serviços elétricos
+                    fiáveis, seguros e realizados com rigor técnico. Apesar de estar a dar os primeiros passos,
+                    nasce com uma base sólida de experiência prática e compromisso profissional. O foco é simples:
+                    garantir que cada cliente recebe um serviço claro, honesto e bem executado.
+                </p>
             </section>
 
             {/* CONTEXTO NETLIFY */}
