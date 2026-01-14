@@ -16,18 +16,25 @@ export default function ComentariosPage() {
             </h1>
 
             <p style={{ color: "white", marginBottom: "2rem" }}>
-                Deixa aqui o teu comentário. Todos os comentários serão revistos antes de serem publicados.
+                Deixe aqui o seu comentário. Todos os comentários serão revistos antes de serem publicados.
             </p>
 
             <form
+                name="comentarios"
+                method="POST"
+                action="/sucesso"
+                data-netlify="true"
                 className="flex flex-col gap-4"
-                style={{
-                    maxWidth: "500px",
-                }}
+                style={{ maxWidth: "500px" }}
             >
+                {/* Campo obrigatório para Netlify Forms */}
+                <input type="hidden" name="form-name" value="comentarios" />
+
                 <input
                     type="text"
-                    placeholder="O teu nome"
+                    name="nome"
+                    placeholder="O seu nome"
+                    required
                     style={{
                         padding: "10px",
                         borderRadius: "6px",
@@ -38,8 +45,10 @@ export default function ComentariosPage() {
                 />
 
                 <textarea
-                    placeholder="O teu comentário"
+                    name="mensagem"
+                    placeholder="O seu comentário"
                     rows="5"
+                    required
                     style={{
                         padding: "10px",
                         borderRadius: "6px",
@@ -73,7 +82,7 @@ export default function ComentariosPage() {
                     borderRadius: "10px",
                 }}
             >
-                Área reservada para comentários aprovados
+                Comentários aprovados serão exibidos aqui.
             </div>
         </div>
     );
